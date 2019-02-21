@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>DataCenter</title>
+    <link rel="stylesheet" th:href="@{css/datacenter.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}" />
+</head>
+<body>
+
+<div id="mainImgContainer">
+    <img th:src="@{/images/datacenter.jpg}" alt="Datacenter-img" id="mainImg" />
+</div>
+
+<h1 id="mainImgText">AMCO DataCenter</h1>
+
+
+<div class="datacenterDiv">
+    <form name="datacenterForm" action="/chosenDatacenter" method="post">
+        <div class="form-control">
+            <label for="datacenterList">Datacenter</label>
+            <select name="datacenterList" id="datacenterList" class="form-group">
+                <option th:each="datacenter : ${allDatacenters}" th:text="${datacenter.name}" th:value="${datacenter.name}"></option>
+            </select>
+        </div>
+        <button id="boton" type="submit" class="form-group">ELEGIR</button>
+    </form>
+    <div>
+        <button id="addDatacenter" type="button" onclick="">Nuevo Datacenter</button>
+    </div>
+
+    <!-- Datacenter Modal -->
+
+    <div class="modal fade" id="datacenterModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Agregar Datacenter</h5>
+                </div>
+                <div class="modal-body">
+                    <label for="datacentername">Nombre</label>
+                    <input type="text" id="datacenterName"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btn-addDatacenter">Agregar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script th:src="@{js/jquery-1.11.3.js}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script th:src="@{js/index.js}"></script>
+</body>
+</html>
+

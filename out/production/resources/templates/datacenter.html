@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>DataCenter</title>
+    <link rel="stylesheet" th:href="@{css/datacenter.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}" />
+</head>
+<body>
+
+<div id="mainImgContainer">
+    <img th:src="@{/images/datacenter.jpg}" alt="Datacenter-img" id="mainImg" />
+</div>
+
+<h1 id="mainImgText">AMCO'S DataCenter</h1>
+
+
+<div class="datacenterDiv">
+    <form name="datacenterForm" action="/chosenDatacenter" method="post">
+        <div class="form-control">
+            <label for="datacenterList">Datacenter</label>
+            <select name="datacenterList" id="datacenterList" class="form-group">
+                <option th:each="datacenter : ${allDatacenters}" th:text="${datacenter.name}" th:value="${datacenter.name}"></option>
+            </select>
+        </div>
+        <button id="boton" type="submit" class="form-group">ELEGIR</button>
+    </form>
+</div>
+</body>
+</html>
+

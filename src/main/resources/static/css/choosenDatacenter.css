@@ -1,0 +1,56 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#fisicHostTitle, #fisicHostIp, #fisicHostOS, #fisicHostNotes{
+    text-align:center;
+}
+
+
+table{
+    margin-top: 50px;
+    display: table;
+    width: 90%;
+}
+
+#datacenterName,
+#datacenterIp,
+#datacenterOS,
+#datacenterNotes{
+    text-align: center;
+}
+
+tr, th, td{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+modal-user, modal-pass, modal-notes, edit-modal-user,
+edit-modal-pass, edit-modal-notes{
+    text-align: center;
+}
+
+#btnAgregarHostFisico{
+    float: right;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.btn-addCred{
+    float: right;
+}
+
+.modal-title{
+    font-weight: bold;
+}
+
+.odd-even:nth-child(odd) {
+    background-color:#fbfbfb;
+}
+
+.odd-even:nth-child(even) {
+    background-color:#f2f2f2;
+}

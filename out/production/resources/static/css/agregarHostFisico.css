@@ -1,0 +1,17 @@
+
+.container{
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1{
+    color: green;
+    margin-bottom: 50px;
+}
+
+label{
+
+  display: inline-block;
+  width: 80px;
+
+}

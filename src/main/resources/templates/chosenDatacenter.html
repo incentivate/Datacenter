@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Datacenter | Host Fisicos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}" />-->
+    <link rel="stylesheet" th:href="@{/css/choosenDatacenter.css}" />
+</head>
+
+<body>
+
+    <table id="fisicHostsTable">
+        <tr class="row">
+            <th class="tableHeader">Nombre</th>
+            <th class="tableHeader">IP</th>
+            <th class="tableHeaders">Sistema Operativo</th>
+            <th class="tableHeaders">Notas</th>
+        </tr>
+
+        <th:block th:each="fh : ${datacenterFisicHosts}">
+            <div>
+                <tr class="row odd-even">
+                    <td id="fisicHostName" th:text="${fh.name}"></td>
+                    <td id="fisicHostIp" th:text="${fh.ip}"></td>
+                    <td id="fisicHostOS" th:text="${fh.operatingSystem}"></td>
+                    <td id="fisicHostNotes" th:text="${fh.notes}"></td>
+                    <td>
+                        <button class="credentialsButton btn btn-warning btn-sm" th:attr="data-fisic-host-id=${fh.id}">CREDENCIALES</button>
+                    </td>
+                    <td>
+                        <button class="btnDeleteFh btn btn-danger btn-sm" th:attr="data-fisic-host-id=${fh.id}">
+                            <span class="glyphicon glyphicon-remove-sign"></span> Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </div>
+        </th:block>
+    </table>
+
+    <a th:href="@{/agregarHostFisico}"><button id="btnAgregarHostFisico" class="btn btn-success btn-lg">Agregar nuevo Host Fisico</button></a>
+
+
+<!-- Credential Modal -->
+<div class="modal fade" id="credentialsModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">Credenciales</h5>
+                <button class="btn-addCred btn btn-success btn-sm">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Agregar Credencial
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="credentialsTable">
+                    <tr class="row">
+                        <th id="modal-user">Usuario</th>
+                        <th id="modal-pass">Clave</th>
+                        <th id="modal-notes">Notas</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Credencial</h5>
+                </div>
+                <div class="modal-body">
+                    <table id="edit-credentialsTable">
+                        <tr class="row">
+                            <th id="edit-modal-user">Usuario</th>
+                            <th id="edit-modal-pass">Clave</th>
+                            <th id="edit-modal-notes">Notas</th>
+                        </tr>
+                        <tr class="row">
+                            <td><input type="text" id="newUser"/></td>
+                            <td><input type="text" id="newPass"/></td>
+                            <td><input type="text" id="newNotes"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" id="btn-confirm">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Modal -->
+    <div class="modal fade" id="addCredModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Credencial</h5>
+                </div>
+                <div class="modal-body">
+                    <table id="add-credentialsTable">
+                        <tr class="row">
+                            <th id="add-modal-user">Usuario</th>
+                            <th id="add-modal-pass">Clave</th>
+                            <th id="add-modal-notes">Notas</th>
+                        </tr>
+                        <tr class="row">
+                            <td><input type="text" id="newUser2"/></td>
+                            <td><input type="text" id="newPass2"/></td>
+                            <td><input type="text" id="newNotes2"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" id="btn-saveCred">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script th:src="@{js/jquery-1.11.3.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script th:src="@{js/chosenDatacenter.js}"></script>
+</body>
+</html>

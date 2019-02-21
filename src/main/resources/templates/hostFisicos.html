@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Host Fisicos</title>
+</head>
+<body>
+
+    <h1>Lista de Host Fisicos</h1>
+
+    <div>
+        <p th:each="hostFisico : ${hostFisicos}" th:text="${hostFisico.name}"></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Datacenter | Host Fisicos</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/choosenDatacenter.css}" />
+</head>
+
+<body>
+
+    <table id="fisicHostsTable">
+        <tr class="row">
+            <th class="tableHeader">Nombre</th>
+            <th class="tableHeader">IP</th>
+            <th class="tableHeaders">Sistema Operativo</th>
+            <th class="tableHeaders">Notas</th>
+        </tr>
+
+        <th:block th:each="fh : ${datacenterFisicHosts}">
+            <div>
+                <tr class="row">
+                    <td id="fisicHostName" th:text="${fh.name}"></td>
+                    <td id="fisicHostIp" th:text="${fh.ip}"></td>
+                    <td id="fisicHostOS" th:text="${fh.operatingSystem}"></td>
+                    <td id="fisicHostNotes" th:text="${fh.notes}"></td>
+                    <td><button class="credentialsButton" th:attr="data-fisic-host-id=${fh.id}">CREDENCIALES</button></td>
+                </tr>
+            </div>
+        </th:block>
+    </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="credentialsModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">Credenciales</h5>
+            </div>
+            <div class="modal-body">
+                <table id="credentialsTable">
+                    <tr class="row">
+                        <th>Usuario</th>
+                        <th>Clave</th>
+                        <th>Notas</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{js/jquery-1.11.3.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script th:src="@{js/chosenDatacenter.js}"></script>
+</body>
+</html>

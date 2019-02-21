@@ -1,0 +1,24 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#fisicHostTitle, #fisicHostIp, #fisicHostOS, #fisicHostNotes{
+    text-align:center;
+}
+
+
+table{
+    margin-top: 50px;
+    display: table;
+    width: 90%;
+}
+
+#datacenterName,
+#datacenterIp,
+#datacenterOS,
+#datacenterNotes{
+    text-align: center;
+}
+

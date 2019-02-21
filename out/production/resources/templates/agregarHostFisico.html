@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Host Fisicos | Agregar</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/agregarHostFisico.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>Agregar Host Fisico</h1>
+
+    <div class="formulario">
+        <form action="/hostFisicos" method="post" th:object="${fisicHost}">
+
+            <div class="form-control">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" th:field="*{name}" class="form-group" required="required"/>
+            </div>
+
+            <br/><br/><br/>
+
+            <div class="form-control">
+                <label for="ip">Ip</label>
+                <input type="text" name="ip" id="ip" th:field="*{ip}" class="form-group" required="required"/>
+            </div>
+
+            <br/><br/><br/>
+
+            <div class="form-control">
+                <label for="sistemaOperativo">Sistema Operativo</label>
+                <select type="text" name="sistemaOperativo" id="sistemaOperativo" th:field="*{operatingSystem}" class="form-group">
+                    <option value="Windows">Windows</option>
+                    <option value="Linux">Linux</option>
+                </select>
+            </div>
+
+            <br/><br/><br/>
+
+            <div class="form-control">
+                <label for="notas">Notas</label>
+                <textarea name="notas" id="notas" th:field="*{notes}" cols="30" rows="10" class="form-group"></textarea>
+            </div>
+
+            <br/><br/><br/>
+
+            <button type="submit" class="btn btn-success">ENVIAR</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
